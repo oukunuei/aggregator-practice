@@ -1,0 +1,20 @@
+@startuml
+!define primary_key(x) <b><color:#b8861b><&key></color> x</b>
+!define foreign_key(x) <color:#aaaaaa><&key></color> x
+!define column(x) <color:#efefef><&media-record></color> x
+!define table(x) entity x << (T, white) >>
+
+table( employees ) {
+  primary_key( id ): VARCHAR(64)
+  column( name ): VARCHAR(256)
+  foreign_key( department_id ): VARCHAR(64)  <<FK>>
+}
+
+table( departments ) {
+  primary_key( id ): VARCHAR(64)  
+  column( name ): VARCHAR(256)
+}
+
+employees }|--|| departments
+
+@enduml
